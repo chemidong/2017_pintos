@@ -1,0 +1,376 @@
+TOTAL TESTING SCORE: 60.0%
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+SUMMARY BY TEST SET
+
+Test Set                                      Pts Max  % Ttl  % Max
+--------------------------------------------- --- --- ------ ------
+tests/threads/Rubric.alarm                     18/ 18  20.0%/ 20.0%
+tests/threads/Rubric.priority                  38/ 38  40.0%/ 40.0%
+tests/threads/Rubric.mlfqs                      0/ 37   0.0%/ 40.0%
+--------------------------------------------- --- --- ------ ------
+Total                                                  60.0%/100.0%
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+SUMMARY OF INDIVIDUAL TESTS
+
+Functionality and robustness of alarm clock (tests/threads/Rubric.alarm):
+	     4/ 4 tests/threads/alarm-single
+	     4/ 4 tests/threads/alarm-multiple
+	     4/ 4 tests/threads/alarm-simultaneous
+	     4/ 4 tests/threads/alarm-priority
+
+	     1/ 1 tests/threads/alarm-zero
+	     1/ 1 tests/threads/alarm-negative
+
+	- Section summary.
+	      6/  6 tests passed
+	     18/ 18 points subtotal
+
+Functionality of priority scheduler (tests/threads/Rubric.priority):
+	     3/ 3 tests/threads/priority-change
+	     3/ 3 tests/threads/priority-preempt
+
+	     3/ 3 tests/threads/priority-fifo
+	     3/ 3 tests/threads/priority-sema
+	     3/ 3 tests/threads/priority-condvar
+
+	     3/ 3 tests/threads/priority-donate-one
+	     3/ 3 tests/threads/priority-donate-multiple
+	     3/ 3 tests/threads/priority-donate-multiple2
+	     3/ 3 tests/threads/priority-donate-nest
+	     5/ 5 tests/threads/priority-donate-chain
+	     3/ 3 tests/threads/priority-donate-sema
+	     3/ 3 tests/threads/priority-donate-lower
+
+	- Section summary.
+	     12/ 12 tests passed
+	     38/ 38 points subtotal
+
+Functionality of advanced scheduler (tests/threads/Rubric.mlfqs):
+	  ** 0/ 5 tests/threads/mlfqs-load-1
+	  ** 0/ 5 tests/threads/mlfqs-load-60
+	  ** 0/ 3 tests/threads/mlfqs-load-avg
+
+	  ** 0/ 5 tests/threads/mlfqs-recent-1
+
+	  ** 0/ 5 tests/threads/mlfqs-fair-2
+	  ** 0/ 3 tests/threads/mlfqs-fair-20
+
+	  ** 0/ 4 tests/threads/mlfqs-nice-2
+	  ** 0/ 2 tests/threads/mlfqs-nice-10
+
+	  ** 0/ 5 tests/threads/mlfqs-block
+
+	- Section summary.
+	      0/  9 tests passed
+	      0/ 37 points subtotal
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-load-1 FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-load-1"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-load-1:
+
+Writing command line to /tmp/fDu3usdGre.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-load-1
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-load-1':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-load-1"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 604 characters output
+Keyboard: 0 keys pressed
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-load-60 FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-load-60"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-load-60:
+
+Writing command line to /tmp/TVsOop6DhC.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-load-60
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-load-60':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-load-60"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 607 characters output
+Keyboard: 0 keys pressed
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-load-avg FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-load-avg"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-load-avg:
+
+Writing command line to /tmp/m3q6NxEsnX.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-load-avg
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-load-avg':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-load-avg"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 610 characters output
+Keyboard: 0 keys pressed
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-recent-1 FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-recent-1"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-recent-1:
+
+Writing command line to /tmp/6lg7l8pTrQ.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-recent-1
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-recent-1':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-recent-1"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 610 characters output
+Keyboard: 0 keys pressed
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-fair-2 FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-fair-2"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-fair-2:
+
+Writing command line to /tmp/2cyTi66BM9.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-fair-2
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-fair-2':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-fair-2"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 604 characters output
+Keyboard: 0 keys pressed
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-fair-20 FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-fair-20"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-fair-20:
+
+Writing command line to /tmp/fbmS17hDGR.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-fair-20
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-fair-20':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-fair-20"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 607 characters output
+Keyboard: 0 keys pressed
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-nice-2 FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-nice-2"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-nice-2:
+
+Writing command line to /tmp/Dba9cuIAAC.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-nice-2
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-nice-2':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-nice-2"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 604 characters output
+Keyboard: 0 keys pressed
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-nice-10 FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-nice-10"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-nice-10:
+
+Writing command line to /tmp/Jxpycc91do.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-nice-10
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-nice-10':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-nice-10"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 607 characters output
+Keyboard: 0 keys pressed
+Powering off...
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+DETAILS OF tests/threads/mlfqs-block FAILURE:
+
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-block"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)
+
+OUTPUT FROM tests/threads/mlfqs-block:
+
+Writing command line to /tmp/4dJlctwC4a.dsk...
+squish-pty bochs -q
+Kernel command line: -q -mlfqs run mlfqs-block
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  204,600 loops/s.
+Boot complete.
+Executing 'mlfqs-block':
+Kernel PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-block"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 21 ticks
+Thread: 0 idle ticks, 21 kernel ticks, 0 user ticks
+Console: 601 characters output
+Keyboard: 0 keys pressed
+Powering off...

@@ -1,0 +1,8 @@
+FAIL
+Kernel panic in run: PANIC at ../../tests/threads/tests.c:61 in run_test(): no test named "mlfqs-load-1"
+Call stack: 0xc01072dc 0xc0109271 0xc01000a7 0xc010064f
+Translation of call stack:
+0xc01072dc: debug_panic (.../../lib/kernel/debug.c:34)
+0xc0109271: intrff_stub (threads/intr-stubs.S:0)
+0xc01000a7: run_task (.../../../threads/init.c:270)
+0xc010064f: run_actions (.../../../threads/init.c:319)

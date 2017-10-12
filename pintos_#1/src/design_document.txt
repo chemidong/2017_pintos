@@ -1,0 +1,156 @@
+			+--------------------+
+			|       CS 330       |
+			| PROJECT 1: THREADS |
+			|   DESIGN DOCUMENT  |
+			+--------------------+
+				   
+---- GROUP ----
+
+>> Fill in the names and email addresses of your group members.
+
+SeungHee Yoon <shy6531@kaist.ac.kr>
+DongSu Lee <chemidong@kaist.ac.kr>
+
+---- PRELIMINARIES ----
+
+>> If you have any preliminary comments on your submission, notes for the
+>> TAs, usage of tokens, or extra credit, please give them here.
+
+>> Please cite any offline or online sources you consulted while
+>> preparing your submission, other than the Pintos documentation, course
+>> text, lecture notes, and course staff.
+
+			     ALARM CLOCK
+			     ===========
+
+---- DATA STRUCTURES ----
+
+>> A1: Copy here the declaration of each new or changed `struct' or
+>> `struct' member, global or static variable, `typedef', or
+>> enumeration.  Identify the purpose of each in 25 words or less.
+
+struct thread in thread.h =>
+struct list_elem sleep_elem; -> list_elem for waiting list used in timer_sleep()
+int64_t wakeup_ticks; -> int64_t for saving when this thread become unblock after sleep
+
+struct list sleeping_list in devices/timer.c -> list for saving sleeping threads
+---- ALGORITHMS ----
+
+>> A2: Briefly describe what happens in a call to timer_sleep(),
+>> including the effects of the timer interrupt handler.
+
+	Primitive function timer_sleep () invokes thread_yield () multiple times while timer elapsed after start is less than timer ticks. This is known as busy waiting, but we improved this by modifying timer_sleep(), by means of adopting a list of blocked threads. Threads are to be inserted into a list holding blocked threads which are waiting to be awaken when timer_sleep () is called, and waits the amount of time it is required.
+
+>> A3: What steps are taken to minimize the amount of time spent in
+>> the timer interrupt handler?
+
+	As we maintain the list of blocked threads, there’s not much action needed in timer_interrupt () function. All we had to do was to pop the element of thread to be awaken earliest among the thread elements in our list. Note that we could minimize the amount of time spent in the timer interrupt handler by sorting the list when inserting.
+
+---- SYNCHRONIZATION ----
+
+>> A4: How are race conditions avoided when multiple threads call
+>> timer_sleep() simultaneously?
+
+Since the interrupt is being disabled while conducting the action of inserting thread into the list of blocked threads, we could avoid potential race conditions.
+
+>> A5: How are race conditions avoided when a timer interrupt occurs
+>> during a call to timer_sleep()?
+
+	Since timer_sleep func block interrupt until sleep is completed, race conditions can be avoided. 
+
+---- RATIONALE ----
+
+>> A6: Why did you choose this design?  In what ways is it superior to
+>> another design you considered?
+I couldn’t consider other design. 
+
+			 PRIORITY SCHEDULING
+			 ===================
+
+---- DATA STRUCTURES ----
+
+>> B1: Copy here the declaration of each new or changed `struct' or
+>> `struct' member, global or static variable, `typedef', or
+>> enumeration.  Identify the purpose of each in 25 words or less.
+
+struct thread in thread.h =>
+int eff_pri; -> int var for saving donated priority 
+struct list holding_list; -> list for saving locks information this thread holds.
+struct lock * wait_lock; -> lock pointer which point the lock this thread wait for. 
+
+struct lock in synch.h =>
+struct list_elem holding_elem -> list_elem for thread holding_list
+
+struct semaphore_elem in synch.c =>
+int priority; -> int var for saving the thread’s priority
+
+>> B2: Explain the data structure used to track priority donation.
+>> Use ASCII art to diagram a nested donation.  (Alternately, submit a
+>> .png file.)
+it’s src/Project#1_B2.png
+
+
+---- ALGORITHMS ----
+
+>> B3: How do you ensure that the highest priority thread waiting for
+>> a lock, semaphore, or condition variable wakes up first?
+
+	Our implementation simply maintained a list of waiting threads unsorted, and checks every (effective) priority when needed. We couldn’t miss highest priority thread since we checked them all.
+
+>> B4: Describe the sequence of events when a call to lock_acquire()
+>> causes a priority donation.  How is nested donation handled?
+
+	When lock_acquire() is called, current lock’s holder is referenced, checked its effective priority with the current thread, if holder thread has less, set its effective priority to the current’s. After that, using while loop, we reference further to the holder thread’s lock the holder thread is waiting, compare the priority again. By doing so (until the holder is not NULL), nested donation is handled. 
+
+>> B5: Describe the sequence of events when lock_release() is called
+>> on a lock that a higher-priority thread is waiting for.
+
+	when lock with a higher-priority thread is waiting for is released, the lock is at first removed from the list of locks where its holder maintains. Holder thread’s effective priority is set back to the original priority and then holder thread searches its list of locks it holds. If there is any thread waiting for one of the locks and has higher priority, holder thread’s effective priority again set forward to the bigger priority. 
+
+---- SYNCHRONIZATION ----
+
+>> B6: Describe a potential race in thread_set_priority() and explain
+>> how your implementation avoids it.  Can you use a lock to avoid
+>> this race?
+
+	It is possible when there is an interrupt after setting priority but the thread is not switched to the highest priority thread. This was avoided by disabling the interrupt.
+
+---- RATIONALE ----
+
+>> B7: Why did you choose this design?  In what ways is it superior to
+>> another design you considered?
+
+	We couldn’t think of any other design.
+
+
+			   SURVEY QUESTIONS
+			   ================
+
+Answering these questions is optional, but it will help us improve the
+course in future quarters.  Feel free to tell us anything you
+want--these questions are just to spur your thoughts.  You may also
+choose to respond anonymously in the course evaluations at the end of
+the quarter.
+
+>> In your opinion, was this assignment, or any one of the three problems
+>> in it, too easy or too hard?  Did it take too long or too little time?
+
+	Too hard and challenging. It took too long time.
+
+>> Did you find that working on a particular part of the assignment gave
+>> you greater insight into some aspect of OS design?
+
+	Apparently yes.
+
+>> Is there some particular fact or hint we should give students in
+>> future quarters to help them solve the problems?  Conversely, did you
+>> find any of our guidance to be misleading?
+
+	We are still not familiar with utilizing gdb  
+
+>> Do you have any suggestions for the TAs to more effectively assist
+>> students, either for future quarters or the remaining projects?
+
+	No, we don’t
+	
+>> Any other comments?

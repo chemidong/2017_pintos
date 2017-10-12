@@ -1,0 +1,4 @@
+17.09.05
+git server certificate vertification failed -> git config --global http.sslverify false
+
+
