@@ -1,0 +1,23 @@
+Copying tests/userprog/read-zero into /tmp/C6vWLo2dq7.dsk...
+Copying ../../tests/userprog/sample.txt into /tmp/C6vWLo2dq7.dsk...
+Writing command line to /tmp/zDxFqLSewl.dsk...
+qemu -hda /tmp/zDxFqLSewl.dsk -hdb /tmp/htEUTqrYwb.dsk -hdc /tmp/C6vWLo2dq7.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put read-zero put sample.txt run read-zero
+Pintos booting with 4,096 kB RAM...
+375 pages available in kernel pool.
+374 pages available in user pool.
+Kernel command line:
+Pintos booting with 4,096 kB RAM...
+375 pages available in kernel pool.
+374 pages available in user pool.
+Kernel PANIC at ../../threads/malloc.c:79 in malloc_init(): assertion `desc_cnt <= sizeof descs / sizeof *descs' failed.
+Call stack: 0xc0106f5c 0xc010336d 0xc0100366.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 0 ticks
+Thread: 0 idle ticks, 0 kernel ticks, 0 user ticks
+Console: 690 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

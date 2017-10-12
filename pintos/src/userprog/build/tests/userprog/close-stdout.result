@@ -1,0 +1,7 @@
+FAIL
+Kernel panic in run: PANIC at ../../threads/malloc.c:79 in malloc_init(): assertion `desc_cnt <= sizeof descs / sizeof *descs' failed.
+Call stack: 0xc0106f5c 0xc010336d 0xc0100366
+Translation of call stack:
+0xc0106f5c: debug_panic (.../../lib/kernel/debug.c:34)
+0xc010336d: malloc_init (...../../threads/malloc.c:78)
+0xc0100366: paging_init (.../../../threads/init.c:162)

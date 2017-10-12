@@ -1,0 +1,23 @@
+Copying tests/userprog/exec-once into /tmp/AQ1AC9oxot.dsk...
+Copying tests/userprog/child-simple into /tmp/AQ1AC9oxot.dsk...
+Writing command line to /tmp/jZwa5GIJAO.dsk...
+qemu -hda /tmp/jZwa5GIJAO.dsk -hdb /tmp/mnNfZtHktr.dsk -hdc /tmp/AQ1AC9oxot.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put exec-once put child-simple run exec-once
+Pintos booting with 4,096 kB RAM...
+375 pages available in kernel pool.
+374 pages available in user pool.
+Kernel command line:
+Pintos booting with 4,096 kB RAM...
+375 pages available in kernel pool.
+374 pages available in user pool.
+Kernel PANIC at ../../threads/malloc.c:79 in malloc_init(): assertion `desc_cnt <= sizeof descs / sizeof *descs' failed.
+Call stack: 0xc0106f5c 0xc010336d 0xc0100366.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 0 ticks
+Thread: 0 idle ticks, 0 kernel ticks, 0 user ticks
+Console: 692 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

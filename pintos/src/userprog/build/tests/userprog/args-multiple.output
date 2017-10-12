@@ -1,0 +1,22 @@
+Copying tests/userprog/args-multiple into /tmp/LRIUFn5Bzs.dsk...
+Writing command line to /tmp/vNKFFb0J2j.dsk...
+qemu -hda /tmp/vNKFFb0J2j.dsk -hdb /tmp/L553m2aBZ7.dsk -hdc /tmp/LRIUFn5Bzs.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put args-multiple run 'args-multiple some arguments for you!'
+Pintos booting with 4,096 kB RAM...
+375 pages available in kernel pool.
+374 pages available in user pool.
+Kernel command line:
+Pintos booting with 4,096 kB RAM...
+375 pages available in kernel pool.
+374 pages available in user pool.
+Kernel PANIC at ../../threads/malloc.c:79 in malloc_init(): assertion `desc_cnt <= sizeof descs / sizeof *descs' failed.
+Call stack: 0xc0106f5c 0xc010336d 0xc0100366.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 0 ticks
+Thread: 0 idle ticks, 0 kernel ticks, 0 user ticks
+Console: 709 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...
