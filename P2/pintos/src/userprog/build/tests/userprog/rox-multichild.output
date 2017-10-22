@@ -1,0 +1,38 @@
+Copying tests/userprog/rox-multichild into /tmp/AjMGQQZmGh.dsk...
+Copying tests/userprog/child-rox into /tmp/AjMGQQZmGh.dsk...
+Writing command line to /tmp/gHrWIhjAgY.dsk...
+qemu -hda /tmp/gHrWIhjAgY.dsk -hdb /tmp/LUE46W8iuK.dsk -hdc /tmp/AjMGQQZmGh.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put rox-multichild put child-rox run rox-multichild
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  117,760,000 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 209 sector (104 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Formatting file system...done.
+Boot complete.
+Putting 'rox-multichild' into the file system...
+Putting 'child-rox' into the file system...
+Executing 'rox-multichild':
+(rox-multichild) begin
+(rox-multichild) open "child-rox"
+(rox-multichild) read "child-rox"
+(rox-multichild) write "child-rox"
+(rox-multichild) exec "child-rox 5"
+(child-rox) begin
+(child-rox) try to write "child-rox"
+(child-rox) try to write "child-rox": FAILED
+child-rox: exit(1)
+(rox-multichild) wait for child: FAILED
+rox-multichild: exit(1)
+Execution of 'rox-multichild' complete.
+Timer: 58 ticks
+Thread: 0 idle ticks, 57 kernel ticks, 1 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 130 reads, 430 writes
+hd1:0: 209 reads, 0 writes
+Console: 1174 characters output
+Keyboard: 0 keys pressed
+Exception: 0 page faults
+Powering off...

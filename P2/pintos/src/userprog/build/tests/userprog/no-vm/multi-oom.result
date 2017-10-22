@@ -1,0 +1,21 @@
+FAIL
+Kernel panic in run: PANIC at ../../lib/kernel/list.c:84 in list_next(): assertion `is_head (elem) || is_interior (elem)' failed.
+Call stack: 0xc010719c 0xc01075d4 0xc0101154 0xc0109367 0xc010a745 0xc010ac9b 0xc01017ad 0xc01018df 0x804a6f2 0x80481ba 0x8048289 0x80489a0
+Translation of call stack:
+In kernel.o:
+0xc010719c: debug_panic (.../../lib/kernel/debug.c:34)
+0xc01075d4: is_interior (..../../lib/kernel/list.c:49)
+0xc0101154: thread_by_tid (...../../threads/thread.c:83)
+0xc0109367: process_execute (.../../userprog/process.c:60)
+0xc010a745: exec (...../userprog/syscall.c:182)
+0xc010ac9b: syscall_handler (...../userprog/syscall.c:125)
+0xc01017ad: intr_handler (..../threads/interrupt.c:361)
+0xc01018df: intr_entry (threads/intr-stubs.S:38)
+In tests/userprog/no-vm/multi-oom:
+0x0804a6f2: exec (.../../lib/user/syscall.c:81)
+0x080481ba: spawn_child (...prog/no-vm/multi-oom.c:43)
+0x08048289: main (...rog/no-vm/multi-oom.c:135)
+0x080489a0: _start (.../../../lib/user/entry.c:9)
+Translations of user virtual addresses above are based on a guess at
+the binary to use.  If this guess is incorrect, then those
+translations will be misleading.

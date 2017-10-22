@@ -1,0 +1,35 @@
+Copying tests/userprog/no-vm/multi-oom into /tmp/iAYKRicUQf.dsk...
+Writing command line to /tmp/4jBiqOV6HZ.dsk...
+qemu -hda /tmp/4jBiqOV6HZ.dsk -hdb /tmp/4hHpQ6QNvJ.dsk -hdc /tmp/iAYKRicUQf.dsk -m 4 -net none -nographic -monitor null
+Kernel command line: -q -f put multi-oom run multi-oom
+Pintos booting with 4,096 kB RAM...
+374 pages available in kernel pool.
+374 pages available in user pool.
+Calibrating timer...  157,081,600 loops/s.
+hd0:0: detected 137 sector (68 kB) disk, model "QEMU HARDDISK", serial "QM00001"
+hd0:1: detected 4,032 sector (1 MB) disk, model "QEMU HARDDISK", serial "QM00002"
+hd1:0: detected 114 sector (57 kB) disk, model "QEMU HARDDISK", serial "QM00003"
+Formatting file system...done.
+Boot complete.
+Putting 'multi-oom' into the file system...
+Executing 'multi-oom':
+(multi-oom) begin
+multi-oom: exit(-1)
+multi-oom: exit(-1)
+multi-oom: exit(-1)
+(multi-oom) wait returned -1.: FAILED
+multi-oom: exit(1)
+Kernel PANIC at ../../lib/kernel/list.c:84 in list_next(): assertion `is_head (elem) || is_interior (elem)' failed.
+Call stack: 0xc010719c 0xc01075d4 0xc0101154 0xc0109367 0xc010a745 0xc010ac9b 0xc01017ad 0xc01018df 0x804a6f2 0x80481ba 0x8048289 0x80489a0.
+The `backtrace' program can make call stacks useful.
+Read "Backtraces" in the "Debugging Tools" chapter
+of the Pintos documentation for more information.
+Timer: 59 ticks
+Thread: 0 idle ticks, 53 kernel ticks, 6 user ticks
+hd0:0: 0 reads, 0 writes
+hd0:1: 1267 reads, 236 writes
+hd1:0: 114 reads, 0 writes
+Console: 1257 characters output
+Keyboard: 0 keys pressed
+Exception: 1 page faults
+Powering off...
